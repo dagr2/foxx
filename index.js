@@ -11,7 +11,7 @@ module.context.use(router);
 
 // Hello World route
 router.get('/hello-world',(req,res)=>{
-	res.send('Hello word');
+	res.send('Hello WORLD');
 })
 .response(['text/plain'], 'A generic greeting')
 .summary('Generic greeting')
