@@ -43,6 +43,16 @@ router.get('/write-log/:msg',(req,res)=>{
 	res.json(log);
 });
 
+// Hello World route
+router.get('/log-view',(req,res)=>{
+	var { query } = require("@arangodb");
+	var max = 13;
+	var logs = query`
+	  FOR e in log return e	`.toArray();
+	var table=`<table>${logs.map(e=>'<tr><td>'+e._key+'</td><td>'+e.msg+'</td></tr>')}</table>`;
+	res.send(`<html><body>${table}</body></html>`);
+});
+
 router.get('/hello/:name',(req,res)=>{
 	res.send(`Hello, ${req.pathParams.name}`);
 })
