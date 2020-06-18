@@ -56,7 +56,21 @@ router.get('/log-view-text',(req,res)=>{
 	  FOR e in log return e	`.toArray();
 	var table=`<table>${logs.map(e=>'<tr><td>'+e._key+'</td><td>'+e.msg+'</td></tr>')}</table>`;
 	res.set('Content-Type', 'text/html');
-	res.send(`<html><body>${table}</body></html>`);
+	res.send(`
+<html>
+<head>
+<script  src="https://code.jquery.com/jquery-3.3.1.min.js"  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="  crossorigin="anonymous"></script>  	
+		<link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/19.2.5/css/dx.common.css" />
+		<link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/19.2.5/css/dx.light.css" /><script src="https://cdn3.devexpress.com/jslib/19.2.5/js/dx.all.js"></script>
+<script>
+$(function(){
+$('#table').dxDataGrid({dataSource:'./show-log'})
+})
+</script>
+</head>
+<body><div id='table'></div></body>
+</html>
+`);
 });
 
 
