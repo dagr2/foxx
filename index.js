@@ -59,6 +59,12 @@ router.get('/log-view-text',(req,res)=>{
 	res.send(`
 <html>
 <head>
+<style>
+html,body,#table{
+width:100%;
+height:100%;
+}
+</style>
 <script  src="https://code.jquery.com/jquery-3.3.1.min.js"  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="  crossorigin="anonymous"></script>  	
 		<link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/19.2.5/css/dx.common.css" />
 		<link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/19.2.5/css/dx.light.css" /><script src="https://cdn3.devexpress.com/jslib/19.2.5/js/dx.all.js"></script>
