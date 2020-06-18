@@ -49,12 +49,12 @@ router.put('/write-object',(req,res)=>{
 	res.json(log);
 });
 
-router.get('/log-view',(req,res)=>{
+router.get('/log-view-text',(req,res)=>{
 	var { query } = require("@arangodb");
 	var max = 13;
 	var logs = query`
 	  FOR e in log return e	`.toArray();
-	var table=`<table>${logs.map(e=>'<tr><td>'+e._key+'</td><td>'+e.log+'</td></tr>')}</table>`;
+	var table=`<table>${logs.map(e=>'<tr><td>'+e._key+'</td><td>'+e.msg+'</td></tr>')}</table>`;
 	res.set('Content-Type', 'text/html');
 	res.send(`<html><body>${table}</body></html>`);
 });
