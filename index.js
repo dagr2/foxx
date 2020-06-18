@@ -83,6 +83,7 @@ dataSource:'./show-log',
 		sorting: {
 			mode: 'single'
 		},
+rowAlternationEnabled: true,
 		columns: [{
 			dataField: "_key",
 			sortOrder: 'desc',
