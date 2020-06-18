@@ -80,6 +80,9 @@ dataSource:'./show-log',
 		sorting: {
 			mode: 'single'
 		},
+filterRow:{visible:true},
+filterPanel:{visible:true},
+stateStoring:{enabled:true},
 rowAlternationEnabled: true,
 		columns: [{
 			dataField: "_key",
