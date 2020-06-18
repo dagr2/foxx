@@ -64,7 +64,26 @@ router.get('/log-view-text',(req,res)=>{
 		<link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/19.2.5/css/dx.light.css" /><script src="https://cdn3.devexpress.com/jslib/19.2.5/js/dx.all.js"></script>
 <script>
 $(function(){
-$('#table').dxDataGrid({dataSource:'./show-log'})
+$('#table').dxDataGrid({
+dataSource:'./show-log',
+		pager: {
+			showPageSizeSelector: true,
+			allowedPageSizes: [10, 20, 50, 100, 1000],
+			showNavigationButtons: true
+		},
+		paging: {
+			pageSize: 100
+		},
+		sorting: {
+			mode: 'single'
+		},
+		columns: [{
+			dataField: "_key",
+			sortOrder: 'desc',
+			dataType: 'datetime',
+			format: "dd.MM.yyyy, HH:mm:ss" //"MM/dd/yyyy HH:mm"
+		}, "msg"],
+})
 })
 </script>
 </head>
