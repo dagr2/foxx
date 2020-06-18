@@ -19,7 +19,7 @@ router.get('/show-log',(req,res)=>{
 	res.json(log);
 });
 
-router.put('/write-log',(req,res)=>{
+router.put('/write-text',(req,res)=>{
 	var { query } = require("@arangodb");
 	var max = 13;
 	var s=req.body;
@@ -27,7 +27,22 @@ router.put('/write-log',(req,res)=>{
 	  INSERT 
 	  {
 	  	_key: ${new Date()},
-	  	log: ${s}
+	  	msg: ${JSON.parse(s).msg}
+	  } 
+	  INTO log
+	`.toArray();
+	res.json(log);
+});
+
+router.put('/write-object',(req,res)=>{
+	var { query } = require("@arangodb");
+	var max = 13;
+	var s=req.body;
+	var log = query`
+	  INSERT 
+	  {
+	  	_key: ${new Date()},
+	  	doc: ${JSON.parse(s)}
 	  } 
 	  INTO log
 	`.toArray();
