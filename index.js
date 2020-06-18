@@ -22,12 +22,12 @@ router.get('/show-log',(req,res)=>{
 router.put('/write-log',(req,res)=>{
 	var { query } = require("@arangodb");
 	var max = 13;
-	var s=JSON.stringify(req.body);
+	var s=JSON.stringify(req);
 	var log = query`
 	  INSERT 
 	  {
 	  	_key: ${new Date()},
-	  	msg: '${s}'
+	  	msg: ${s}
 	  } 
 	  INTO log
 	`.toArray();
