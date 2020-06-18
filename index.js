@@ -39,7 +39,7 @@ router.get('/log-view',(req,res)=>{
 	var max = 13;
 	var logs = query`
 	  FOR e in log return e	`.toArray();
-	var table=`<table>${logs.map(e=>'<tr><td>'+e._key+'</td><td>'+e.msg+'</td></tr>')}</table>`;
+	var table=`<table>${logs.map(e=>'<tr><td>'+e._key+'</td><td>'+JSON.parse(e.msg).msg+'</td></tr>')}</table>`;
 	res.set('Content-Type', 'text/html');
 	res.send(`<html><body>${table}</body></html>`);
 });
