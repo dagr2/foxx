@@ -27,7 +27,7 @@ router.put('/write-log',(req,res)=>{
 	  INSERT 
 	  {
 	  	_key: ${new Date()},
-	  	msg: ${s}
+	  	msg: '${s}'
 	  } 
 	  INTO log
 	`.toArray();
