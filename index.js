@@ -29,7 +29,7 @@ router.get('/show-log',(req,res)=>{
 });
 
 // Hello World route
-router.get('/write-log/:msg',(req,res)=>{
+router.put('/write-log/:msg',(req,res)=>{
 	var { query } = require("@arangodb");
 	var max = 13;
 	var log = query`
