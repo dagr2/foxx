@@ -22,7 +22,7 @@ router.get('/show-log',(req,res)=>{
 router.put('/write-log',(req,res)=>{
 	var { query } = require("@arangodb");
 	var max = 13;
-	var s=req.body.data;
+	var s=String.fromCharCode(...req.body.data);
 	var log = query`
 	  INSERT 
 	  {
