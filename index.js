@@ -26,7 +26,7 @@ router.put('/write-log',(req,res)=>{
 	  INSERT 
 	  {
 	  	_key: ${new Date()},
-	  	msg: ${req.body}
+	  	msg: ${JSON.stringify(req.body)}
 	  } 
 	  INTO log
 	`.toArray();
