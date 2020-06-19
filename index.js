@@ -14,7 +14,7 @@ router.get('/show-log',(req,res)=>{
 	var max = 13;
 	var log = query`
 	  FOR l IN log
-	sort l._key desc
+	sort l.timestamp desc
 	limit 5000
 	  RETURN l
 	`.toArray();
@@ -85,7 +85,7 @@ filterPanel:{visible:true},
 stateStoring:{enabled:true},
 rowAlternationEnabled: true,
 		columns: [{
-			dataField: "_key",
+			dataField: "timestamp",
 			sortOrder: 'desc',
 			dataType: 'datetime',
 			format: "dd.MM.yyyy, HH:mm:ss" //"MM/dd/yyyy HH:mm"
