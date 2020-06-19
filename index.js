@@ -28,7 +28,7 @@ router.put('/write-text',(req,res)=>{
 	var log = query`
 	  INSERT 
 	  {
-	  	_key: ${new Date()},
+	  	timestamp: ${new Date()},
 	  	msg: ${JSON.parse(s).msg}
 	  } 
 	  INTO log
@@ -43,7 +43,7 @@ router.put('/write-object',(req,res)=>{
 	var log = query`
 	  INSERT 
 	  {
-	  	_key: ${new Date()},
+	  	timestamp: ${new Date()},
 	  	doc: ${JSON.parse(s)}
 	  } 
 	  INTO log
